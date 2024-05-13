@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "financegraph"
+version = "0.1.0"
+description = "Finance Data Graph"
+authors = ["Geo Varkey <geo.varkey@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "edgar"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.31.0"
+tqdm = "^4.66.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+download13f = 'edgar.commands:download13f'
+create-db = 'edgar.commands:create_db'
+10k = 'edgar.commands:get_10k_facts'
+gengraph = 'edgar.commands:gen_graph_data'
+cns = 'edgar.commands:load_cns'
+
+
